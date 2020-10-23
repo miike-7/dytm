@@ -1,0 +1,186 @@
+.main_frame {
+  width: 99%;
+  margin: auto;
+  overflow: auto;
+}
+
+table {
+  width: 793px;
+  margin: 0.5em auto;
+  border-collapse: collapse;
+  background: #161616;
+  text-align: center;
+  user-select: none;
+  font-size: 15px;
+}
+
+caption {
+  height: 23px;
+  background: #000;
+  color: #fff;
+}
+
+tr:nth-child(2) {
+  background: #000000;
+  color: #fff;
+}
+
+tr:nth-child(2) td:nth-child(n+4):nth-child(-n+7) {
+  background: #009fe2;
+}
+
+tr:nth-child(2) td:nth-child(n+8):nth-child(-n+11) {
+  background: #66c52c;
+}
+
+tr:nth-child(2) td:nth-child(n+14):nth-child(-n+19) {
+  background: #009b9c;
+}
+
+tr:nth-child(n+3) {
+  background: #eee;
+}
+
+tr:nth-child(n+3) td:nth-child(3) {
+  font-family: "ＭＳ ゴシック";
+  font-weight: bold;
+}
+
+tr:nth-child(n+3) td:nth-child(n+1):nth-child(-n+3),tr:nth-child(n+3) td:nth-child(n+12):nth-child(-n+13) {
+  background: #888888;
+  color: #fff;
+}
+
+tr:nth-child(n+3) td:nth-child(n+4):nth-child(-n+11) {
+  font-family: 'Roboto', sans-serif !important;
+  color: #000;
+}
+
+tr:nth-child(n+3) td:nth-child(n+14):nth-child(-n+19) {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+tr:nth-child(n+3) td:nth-child(3) {
+  padding-left: 0.25em;
+  text-align: left;
+  white-space: nowrap;
+}
+
+tr:nth-child(n+2) td:nth-child(20) {
+  color: #fff;
+}
+
+tr:nth-last-child(1) td {
+  border-bottom: 1px solid #d4d4d4;
+}
+
+td {
+  height: 23px;
+  border-top: 1px solid #d4d4d4;
+}
+
+td:nth-child(1) {
+  width: 19px;
+}
+
+td:nth-child(2),td:nth-child(n+4):nth-child(-n+21) {
+  width: 35px;
+}
+
+td:nth-child(n+1):nth-child(-n+19) {
+  border-right: 1px solid #aaaaaa;
+}
+
+td:nth-child(n+1):nth-child(-n+2) {
+  border-right: 1px solid #d4d4d4;
+}
+
+td:nth-child(12) {
+  border-right: 1px solid #d4d4d4;
+}
+
+td:nth-child(3) {
+  width: 121px;
+}
+
+.option_frame {
+  width: 100%;
+  margin: auto;
+  background: #333333;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 700px) {
+  .option_frame {display: none}
+}
+
+.operation_frame {
+  width: 100%;
+  margin: 1em auto 0;
+}
+
+.btn_zone {
+  width: 100%;
+  margin: auto;
+}
+
+.btn_flex {
+  max-width: 793px;
+  width: 100%;
+  margin: auto;
+  display: -ms-flex;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.btn_a {
+  width: 130px;
+  padding: 0.5em 0;
+  margin: 0 0.5em 0 0;
+  background: #eeeeee;
+  border: 1px solid #cccccc;
+  font-size: 14px;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  .btn_a {
+    font-size: 13px;
+  }
+}
+
+.btn_o, .btn_a:hover  {background: #cccccc;}
+
+.item_zone {
+  background: #cccccc;
+}
+
+.item_contents {display: none;
+  max-width: 793px;
+  width: 95%;
+  min-height: 200px;
+  padding-top: 0.5em;
+  margin: auto;
+}
+
+.on {display: block;}
+
+.player_operation_zone {display: block;
+  width: 100%;
+  margin: auto;
+}
+
+.player_operation_zone input, .player_operation_zone select
+, .change_frame input, .change_frame select
+, .option_frame input, .option_frame select {
+  margin-right: 0.25em;
+  margin: 0.5em auto;
+}
+
+.parameter_frame {display: none;
+}
