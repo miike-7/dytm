@@ -1,255 +1,48 @@
 <!DOCTYPE html>
+<html lang="jp" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@miike_7">
+    <meta property="og:url" content="http://miike.jp/">
+    <meta property="og:title" content="ダイナマイト野球チームメーカー wikiEdition">
+    <meta property="og:description" content="「ダイナマイト野球」のチームをブラウザ上で簡単に作成できます。">
+    <meta property="og:image" content="https://miike-7.github.io/dytm/img/img_374.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>ダイナマイト野球チームメーカー wikiEdition</title>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="table.css">
+    <link rel="stylesheet" href="main.css">
+    <style>
+    noscript {
+      position: fixed;
+      z-index: 9999;
+      width: 100%;
+      height: 100%;
+      background: #f0f0f0;
+      text-align: center;
+    }
+    </style>
+    <script type="text/javascript">
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    if(userAgent.indexOf('msie') != -1 || userAgent.indexOf('trident') != -1){
+      window.location.href = "https://miike7.hateblo.jp/entry/2021/07/31/220915";
+    }
+    </script>
+  </head>
+  <body>
 
-<html lang="ja">
+    <noscript>
+      <p>javascriptが無効です。<br>各ブラウザの設定より有効にして下さい。</p>
+    </noscript>
 
-<head>
- <meta charset="utf-8">
- <meta name="description" content="無料野球ゲーム、「ダイナマイト野球」のチームをブラウザ上で作成できます。簡単な操作で選手情報を細かく設定できます。作成した選手は自動で保存されいつでも続きから開始できます。ダウンロード機能もあるので共有も楽々に行えます。">
- <meta name="twitter:card" content="summary">
- <meta name="twitter:site" content="@miike_7">
- <meta property="og:url" content="http://miike.jp/">
- <meta property="og:title" content="ダイナマイト野球チームメーカー wikiEdition">
- <meta property="og:description" content="「ダイナマイト野球」のチームをブラウザ上で簡単に作成できます。">
- <meta property="og:image" content="https://miike-7.github.io/dytm/img/img_374.png">
- <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
- <meta name="theme-color" content="#eeeeee">
- <title>ダイナマイト野球チームメーカー wikiEdition</title>
- <link rel="shortcut icon" href="img/favicon.ico">
- <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
- <link rel="stylesheet" href="page.css">
- <link rel="stylesheet" href="main.css">
-</head>
+    <main id="main" role="main">
+      <p style="text-align: center">now maintenance</p>
+    </main>
 
-<body class="script">
-
-<header>
-  <div class="hdr_frame">
-    <div class="hdr_ttl"><span>ダイナマイト野球チームメーカー wikiEdition</span></div>
-    <div class="btn_frame"><div id="menuBtn"><span>メニュー</span></div></div>
-  </div>
-</header>
-
-<noscript>
-  <p>javascriptが無効です。<br>各ブラウザの設定より有効にして下さい。</p>
-</noscript>
-
-<div class="mobile_guide">
-  <p>ご使用の端末では、画面を横向きにしてご利用頂いております。</p>
-</div>
-
-<div class="guide_frame">
-  <div class="guide_content">
-    <div id="ext_btn"><span>閉じる</span></div>
-    <div class="guide_box">
-      <h3></h3>
-    </div>
-    <div class="guide_box">
-      <h2>ダイナマイト野球チームメーカー wikiEdition</h2>
-      <p>ダイナマイト野球のオリジナルチームが作れます。</p>
-    </div>
-    <div class="guide_box">
-      <h3>使い方</h3>
-      <p>ページ下部の[選手追加・編集]タブをクリックして下さい。<br>[項目選択]でスタメンか控えを選択し、[選手選択]より操作する選手を選択して下さい。<br>
-      選手を選択するとパラメータを操作する画面が表示されます。</p>
-    </div>
-    <div class="guide_box">
-      <h3>機能一覧</h3>
-      <h4>・守備位置について</h4>
-      <p>ver3では選択した守備位置が他の選手と被らないように自動的に調整されます。</p>
-      <h4>・保存・読み込み</h4>
-      <mark id="cookie_ture">aaa</mark>
-      <p>上記に「対応しています。」と出ている場合はそのままご利用いただけます。<br>対応していない場合は、他のブラウザでお試しいただくことを推奨しています。<br>保存と読み込みは完全自動です。</p>
-      <h4>・ダウンロード</h4>
-      <p>表示内容を画像形式で保存します。拡張子は.pngで[dyateam'日付'_'時間']で保存されます。<br>下部の[オプション]タブからご利用ください。<br>※Internet Explorerでは現在対応していません。</p>
-    </div>
-    <div class="guide_box">
-      <h3>動作確認</h3>
-      <ul>
-        <li>Google Chrome:最新版(推奨)</li>
-        <li>Microsoft Edge:最新版</li>
-        <li>Firefox:最新版</li>
-        <li>Internet Explorer 11:(ダウンロードは非対応)</li>
-        <li>Internet Explorer 10より以前:デバックなし、保証なし(非推奨)</li>
-      </ul>
-    </div>
-    <div class="guide_box">
-      <h3>更新履歴</h3>
-      <ul>
-        <li>ver:3.1.1-公開 10/24/2020</li>
-      </ul>
-    </div>
-    <div class="guide_box">
-      <h3>Link</h3>
-      <a href="http://splax.net/game/baseball.html" target="_blank">ダイナマイト野球</a>
-      <a href="https://twitter.com/miike_7" target="_blank">@miike_7</a>
-    </div>
-    <footer>&copy; 2020 @miike_7</footer>
-  </div>
-</div>
-
-<div class="option_frame">
-</div>
-
-<div class="main_frame">
-  <table id="main_tbl">
-  </table>
-</div>
-
-<div class="operation_frame">
-  <div class="btn_zone">
-    <div class="btn_flex">
-      <div class="btn_a btn_o"><span>選手追加・編集</span></div>
-      <div class="btn_a"><span>チーム設定</span></div>
-      <div class="btn_a"><span>オプション</span></div>
-    </div>
-  </div>
-
-  <div class="item_zone">
-    <div class="item_contents on">
-      <div class="player_operation_zone">
-        <label for="select_lineup">項目選択：</label>
-        <select id="select_lineup">
-          <option value="0">スタメン</option>
-          <option value="1">控え野手</option>
-          <option value="2">控え投手</option>
-        </select>
-
-        <label for="select_player">選手選択：</label>
-        <select id="select_player">
-          <option value="0">-選手選択</option>
-        </select>
-
-        <div class="parameter_frame">
-          <label for="select_PB">投打：</label>
-          <select id="select_PB"><option value="0">-投打</option>
-            <optgroup label="右投げ">
-              <option value="1">右打</option>
-              <option value="2">左打</option>
-              <option value="3">両打</option>
-              <optgroup label="左投げ">
-                <option value="4">右打</option>
-                <option value="5">左打</option>
-                <option value="6">両打</option>
-              </select>
-
-          <label for="playerName">選手名：</label>
-          <input type="text" id="playerName" placeholder="選手名を入力" maxlength='8' size="12">
-
-          <select id="select_role">
-            <option value="0">-登録</option>
-            <option value="1">(野)野手</option>
-            <option value="2">(先)スターター</option>
-            <option value="3">(セ)セットアッパー</option>
-            <option value="4">(リ)リリーフ</option>
-            <option value="5">(抑)クローザー</option>
-          </select>
-
-          <form id="parameter_form" name="form_1">
-            <span>打撃:</span>
-            <select id="select_2" data-num="3">
-              <option value="0">長</option>
-            </select>
-            <select id="select_3" data-num="4">
-              <option value="0">ヒ</option>
-            </select>
-            <select id="select_4" data-num="5">
-              <option value="0">巧</option>
-            </select>
-            <select id="select_5" data-num="6">
-              <option value="0">足</option>
-            </select>
-            <br><span>守備:</span>
-            <select id="select_6" data-num="7">
-              <option value="0">肩</option>
-            </select>
-            <select id="select_7" data-num="8">
-              <option value="0">内</option>
-            </select>
-            <select id="select_8" data-num="9">
-              <option value="0">外</option>
-            </select>
-            <select id="select_9" data-num="10">
-              <option value="0">捕</option>
-            </select>
-            <label for="select_position">守備位置：</label>
-            <select id="select_position">
-              <option value="0">-守備位置</option>
-              <optgroup label="外野">
-                <option value="9">(右)ライト</option>
-                <option value="8">(中)センター</option>
-                <option value="7">(左)レフト</option>
-                <optgroup label="内野">
-                  <option value="6">(遊)ショート</option>
-                  <option value="5">(三)サード</option>
-                  <option value="4">(二)セカンド</option>
-                  <option value="3">(一)ファースト</option>
-                  <optgroup label="バッテリー">
-                  <option value="2">(捕)キャッチャー</option>
-                  <option value="1">(P)ピッチャー</option>
-            </select>
-          </form>
-
-          <form id="pitching_form" name="form_2">
-            <span>投手:</span>
-            <select id="select_10"  data-num="13">
-              <option value="0">速</option>
-            </select>
-
-            <select id="select_11"  data-num="14">
-              <option value="0">コ</option>
-            </select>
-
-            <select id="select_12"  data-num="15">
-              <option value="0">ス</option>
-            </select>
-
-            <select id="select_13"  data-num="16">
-              <option value="0">カ</option>
-            </select>
-
-            <select id="select_14"  data-num="17">
-              <option value="0">フ</option>
-            </select>
-
-            <select id="select_15"  data-num="18">
-              <option value="0">シ</option>
-            </select>
-          </form>
-
-          <form id="change_form">
-            <label for="select_order">打順変更：</label>
-            <select id="select_order">
-              <option value="0">-項目選択</option>
-              <option value="1">スタメン</option>
-              <option value="2">控え</option>
-            </select>
-
-            <select id="select_to">
-              <option value="0">-変更先</option>
-            </select>
-            <input type="button" value="変更" id="onPlayerChange">
-          </form>
-
-        </div>
-      </div>
-    </div>
-    <div class="item_contents">
-      <label for="teamName">チーム名：</label>
-      <input type="text" id="teamName" value="" placeholder="チーム名を入力" maxlength='18' size="31">
-    </div>
-    <div class="item_contents">
-      <input type="button" value="ナイターに変更する" id="nightChange">
-      <input type="button" value="ダウンロード" id="onCanvas">
-      <p>データを初期化する場合は下のクリアボタンを押して下さい。</p>
-      <input type="button" value="Clear" id="storageClear">
-    </div>
-  </div>
-</div>
-
-<script type="text/javascript" src="js/html2canvas.js"></script>
-<script type="text/javascript" src="js/element.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
-</body>
+    <script type="text/javascript" src="js/html2canvas.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
 </html>
