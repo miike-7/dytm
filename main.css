@@ -27,7 +27,7 @@ header {
 }
 
 .header-frame {
-  max-width: 723px;
+  max-width: 720px;
   width: 99%;
   margin: auto;
   display: flex;
@@ -51,7 +51,7 @@ main {
 }
 
 .operation-frame {
-  max-width: 723px;
+  max-width: 720px;
   width: 100%;
   padding: 0.25em;
   margin: 0.5em auto;
@@ -76,4 +76,14 @@ main {
 
 .operation-frame fieldset[disabled] legend {
   color: #000000;
+}
+
+footer {
+  width: 100%;
+  padding: 0.1em 0;
+  margin: auto;
+  background: #000000;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
 }
