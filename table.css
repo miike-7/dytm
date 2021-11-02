@@ -1,20 +1,13 @@
 .table-frame {
   max-width: 720px;
-  width: 99%;
-  margin: auto;
+  width: 100%;
+  margin: 0.25em auto;
   overflow: auto;
   background: #eeeeee;
 }
 
-.w-a {
-  width: 720px;
-}
-
-.w-b {
-  width: 510px;
-}
-
 .main-table {
+  width: 720px;
   margin: auto;
   border-collapse: collapse;
   background: #888888;
@@ -22,12 +15,14 @@
   text-align: center;
   user-select: none;
   font-size: 15px;
+  font-family: 'Arial','ヒラギノ角ゴシック','Hiragino Sans','メイリオ', Meiryo,sans-serif;
 }
 
 .main-table caption {
-  height: 23px;
-  line-height: 23px;
+  caption-side: top;
+  padding: 0.1em 0;
   background: #a4a4a4;
+  text-align: center;
   color: #ffffff;
 }
 
@@ -40,10 +35,14 @@
 
 .main-table th:nth-child(8),
 .main-table th:nth-child(12),
-.main-table td:nth-child(n+1):nth-child(-n+4),
+.main-table td:nth-child(n+2):nth-child(-n+4),
 .main-table td:nth-child(8),
 .main-table td:nth-child(12) {
   border-right: 1px solid #aaaaaa;
+}
+
+.main-table td:nth-child(1){
+  font-family: Verdana;
 }
 
 .main-table tr:nth-child(n+2) td:nth-child(n+5) {
@@ -80,13 +79,30 @@
   white-space: nowrap;
 }
 
+.main-table th:nth-child(n+4) {
+  width: 35px;
+}
+/*items*/
+.bg-main {
+  background: #b67729;
+}
+
+.bg-sub {
+  background: #5eb629;
+}
+
 .short {
   letter-spacing: -2px;
 }
 
-.main-table th:nth-child(n+4) {
-  width: 35px;
+.select {
+  background: #c1007a;
 }
+
+.select td {
+  background: rgba(193, 0, 122, 0.5);
+}
+/*items*/
 
 /*prm color*/
 .prm-active {
