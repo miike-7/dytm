@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@miike_7">
-    <meta property="og:url" content="http://miike.jp/">
-    <meta property="og:title" content="ダイナマイト野球チームメーカー wikiEdition">
-    <meta property="og:description" content="「ダイナマイト野球」のチームをブラウザ上で簡単に作成できます。">
+    <meta property="og:url" content="https://miike-7.github.io/dytm/">
+    <meta property="og:title" content="ダイナマイト野球チームメーカー">
+    <meta property="og:description" content="ダイナマイト野球のチームをブラウザ上で簡単に作成できます。">
     <meta property="og:image" content="https://miike-7.github.io/dytm/img/img_374.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
     <title>ダイナマイト野球チームメーカー wikiEdition</title>
@@ -27,8 +27,8 @@
     }
     </style>
     <script type="text/javascript">
-    const userAgent = window.navigator.userAgent.toLowerCase();
-    if(userAgent.indexOf('msie') != -1 || userAgent.indexOf('trident') != -1){
+    const u = window.navigator.userAgent.toLowerCase();
+    if(u.indexOf('msie') != -1 || u.indexOf('trident') != -1 || u.indexOf('iphone') != -1 || u.indexOf('ipad') != -1 || u.indexOf('android') != -1){
       window.location.href = "https://miike7.hateblo.jp/entry/2021/07/31/220915";
     }
     </script>
@@ -39,106 +39,8 @@
       <p>javascriptが無効です。<br>各ブラウザの設定より有効にして下さい。</p>
     </noscript>
 
-    <header>
-      <div class="header-frame">
-        <h1>チームメーカー</h1>
-        <a href="https://miike7.hateblo.jp/entry/2021/07/31/220915" target="_blank">使い方</a>
-      </div>
-    </header>
-
     <main id="main" role="main">
-
-      <div class="table-frame">
-        <table id="main_table" class="main-table" :class="(input.prmDisplay === 14) ? 'w-a' : 'w-b' "  v-cloak>
-          <caption>{{ tn }}</caption>
-          <tr>
-            <th v-for="(i, ii) in 4">{{ items.th[ii] }}</th>
-            <th v-for="(i, ii) in input.prmDisplay">{{ items.th[ii+4] }}</th>
-          </tr>
-          <tr v-for="(r, ri) in pd" :class="{'prm-active' : (oc_arr[1] === ri)}" @click="trClick(0, ri)">
-            <td>{{ (ri < 9) ? ri+1 : '' }}</td>
-            <td>{{ items.piba[ pd[ri][14] ] }}</td>
-            <td :class="short(ri)">{{ textDraw('name', ri) }}</td>
-            <td :class="items.posColor[ po[ri] ]">{{ items.po[po[ri]] }}</td>
-            <td v-for="(i, ii) in input.prmDisplay" :class="prmColor('prm', ri, ii)">{{ pd[ri][ii] == 0 ? 10 : pd[ri][ii] }}</td>
-          </tr>
-        </table>
-      </div>
-
-      <div class="operation-frame" v-cloak>
-        <div class="oc-frame" v-show="oc">
-          <p style="padding: 0.2em;background: skyblue">打順変更が有効です。テーブルを直接クリックして変更できます。
-            <button type="button" @click="oc = !oc, oc_arr = []">終了</button>
-          </p>
-        </div>
-        <div class="operation-top">
-          <button type="button" @click="oc = !oc, oc_arr = [], input.s1 = -1, s1Change()">打順変更</button>
-          <button type="button" @click="editTeamname" :disabled="oc">チーム名</button>
-          <button type="button" @click="onDownload" :disabled="oc">ダウンロード</button>
-          <button type="button" @click="onReset" :disabled="oc">リセット</button>
-          <button type="button" v-if="debug" @click="_debug">_debug</button>
-        </div>
-
-        <fieldset :disabled="input.s1 === -1">
-          <legend>
-            <select v-model.number="input.s1" :disabled="oc" @change="s1Change">
-              <option value="-1" disabled>-選手選択</option>
-              <optgroup v-for="(r, ri) in 2" :label="['スタメン','控え選手'][ri]">
-                <option v-for="(i, ii) in [9, (pd.length-9)][ri]" :value="[ii, ii+9][ri]">{{ [i, i+9][ri] }}:{{ textDraw('name', [ii, ii+9][ri]) }}</option>
-              </optgroup>
-            </select>
-          </legend>
-
-          <label>投打-
-            <select v-model="input.s2" @change="prmChange">
-              <option :value="-1" disabled>-投打</option>
-              <optgroup v-for="(r, ri) in 2" :label="['右投げ','左投げ'][ri]">
-                <option v-for="(i, ii) in 3" :value="[ii, ii+3][ri]">{{ ['右打','左打','両打'][ii] }}</option>
-              </optgroup>
-            </select>
-          </label>
-
-          <label>選手名-
-            <input type="text" v-model="input.s3" @change="prmChange(0)" placeholder="選手名を入力" maxlength="8" size="12">
-          </label>
-
-          <br>
-
-          <p style="font-size: 14px;">-野手能力は4ケタで入力して下さい。10は0で入力できます。</p>
-
-          <label>打撃-
-            <input type="number" v-model="input.s4" @change="prmChange(1)" min="1111" max="9999" step="1111">
-          </label>
-
-          <label>守備-
-            <input type="number" v-model="input.s5" @change="prmChange(1)" min="1111" max="9999" step="1111">
-          </label>
-
-          <p style="font-size: 14px;">-投手能力は6ケタで入力できます。</p>
-
-          <label>投手-
-            <input type="number" v-model="input.s6" @change="prmChange(1)" min="1111" max="999999" step="111111">
-          </label>
-
-          <br>
-          <br>
-
-          <select v-model="input.s7" :disabled="input.s1 > 8" @change="s7Change">
-            <option :value="-1" disabled>-守備位置</option>
-            <optgroup v-for="(r, ri) in 3" :label="['外野','内野','バッテリー'][ri]">
-              <option v-for="(i, ii) in items.s7value[ri]" :value="items.s7value[ri][ii]">{{ items.s7option[ri][ii] }}</option>
-            </optgroup>
-          </select>
-
-          <select v-model="input.s8" @change="prmChange">
-            <option :value="-1" disabled>-選手登録</option>
-            <option :value="0">野手</option>
-            <option :value="1">投手</option>
-          </select>
-
-        </fieldset>
-      </div>
-
+      <p style="text-align: center">now maintenance</p>
     </main>
 
     <footer>&copy 2021 @miike_7</footer>
