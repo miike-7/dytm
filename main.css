@@ -11,12 +11,12 @@
   box-shadow: none;
 }
 
-.modal {
-  display: block;
-  background: rgba(221, 221, 221, 0.9);
+.table-active {
+  background: #f0908d;
 }
 
-.m-cursor-pointer {
+.hover-skyblue:hover {
+  background: skyblue;
   cursor: pointer;
 }
 
@@ -26,8 +26,12 @@
   margin: auto;
 }
 
-h1 {
-  margin: 0;
+header a {
+  color: yellow;
+}
+
+header a:hover {
+  color: orange;
 }
 
 main {
@@ -48,22 +52,3 @@ footer {
   bottom: 0;
   border-top-left-radius: 3px;
 }
-
-/*role*/
-.role-fp, .role-p {
-  border: 1px solid #000;
-  color: #fff;
-}
-
-.role-fp:hover, .role-p:hover {
-  color: #bbb;
-}
-
-.role-fp {
-  background: #277e00;
-}
-
-.role-p {
-  background: #ac0000;
-}
-/*role end*/
