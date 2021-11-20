@@ -30,7 +30,6 @@
   border-top: 1px solid #d4d4d4;
   height: 24px;
   line-height: 24px;
-  cursor: pointer;
 }
 
 .main-table th:nth-child(8),
@@ -73,6 +72,10 @@
   width: 121px;
 }
 
+.main-table tr:nth-child(n+2) td:nth-child(2) {
+  font-size: 14px;
+}
+
 .main-table tr:nth-child(n+2) td:nth-child(3) {
   padding-left: 0.25em;
   text-align: left;
@@ -82,35 +85,14 @@
 .main-table th:nth-child(n+4) {
   width: 35px;
 }
-/*items*/
-.bg-main {
-  background: #b67729;
-}
 
-.bg-sub {
-  background: #5eb629;
-}
-
-.short {
-  letter-spacing: -2px;
-}
-
-.select {
-  background: #c1007a;
-}
-
-.select td {
-  background: rgba(193, 0, 122, 0.5);
-}
-/*items*/
-
+.short {letter-spacing: -2px;}
 /*prm color*/
-.prm-active {
-  background: #880032;
-}
 .prm-ten, .prm-nine, .prm-eight, .prm-seven, .prm-six, .prm-five, .prm-other {
-  color: #000000;
+  color: #333;
+  font-size: 18px;
 }
+
 .prm-ten {background: #fd2323;}
 .prm-nine {background: #fe5959;}
 .prm-eight {background: #ffa500;}
@@ -118,62 +100,12 @@
 .prm-six {background: #90ee90;}
 .prm-five {background: #add8e6;}
 .prm-other {background: #808080;}
-.d-app {font-weight: bold;}
+.d-app {
+  font-weight: bold;
+}
 
 .pos-dh {background: #00cc00;}
 .pos-p {background: #df5454;}
 .pos-c {background: #fa9140;}
 .pos-in {background: #f8d200;}
 .pos-out {background: #6acec4;}
-
-.main-table tr:nth-child(n+2):hover td {
-  background: rgba(0, 255, 0, 0.2);
-}
-
-.main-table tr:nth-child(n+2):hover .prm-ten {
-  background: rgba(253, 35, 35, 0.5);
-}
-
-.main-table tr:nth-child(n+2):hover .prm-nine {
-  background: rgba(254, 89, 89, 0.5);
-}
-
-.main-table tr:nth-child(n+2):hover .prm-eight {
-  background: rgba(255, 165, 0, 0.5);
-}
-
-.main-table tr:nth-child(n+2):hover .prm-seven {
-  background: rgba(255, 255, 0, 0.5);
-}
-
-.main-table tr:nth-child(n+2):hover .prm-six {
-  background: rgba(144, 238, 144, 0.5);
-}
-
-.main-table tr:nth-child(n+2):hover .prm-five {
-  background: rgba(173, 216, 230, 0.5);
-}
-
-.main-table tr:nth-child(n+2):hover .prm-other {
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.main-table tr:nth-child(n+2):hover .pos-dh {
-  background: rgba(0, 204, 0, 0.5);
-}
-
-.main-table tr:nth-child(n+2):hover .pos-p {
-  background: rgba(223, 84, 84, 0.5);
-}
-
-.main-table tr:nth-child(n+2):hover .pos-c {
-  background: rgba(250, 145, 64, 0.5);
-}
-
-.main-table tr:nth-child(n+2):hover .pos-in {
-  background: rgba(248, 210, 0, 0.5);
-}
-
-.main-table tr:nth-child(n+2):hover .pos-out {
-  background: rgba(106, 206, 196, 0.5);
-}
