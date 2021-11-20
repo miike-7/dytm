@@ -16,9 +16,11 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="table.css">
     <link rel="stylesheet" href="main.css">
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <style>
     noscript {
       position: fixed;
@@ -54,123 +56,9 @@
     </header>
 
     <main id="main" role="main">
-
-      <div class="table-operate p-1  border rounded" :class="mode[0] === 'oc' ? 'bg-warning' : 'bg-light' ">
-        <fieldset :disabled="mode[0] === 'oc'" v-show="mode[0] === 'select'">
-          <button type="button" class="btn btn-sm btn-outline-dark" @click="tableOperate('oc')">打順変更</button>
-          <button type="button" class="btn btn-sm btn-outline-dark" @click="tableOperate('tn')">チーム名</button>
-          <button type="button" class="btn btn-sm btn-outline-dark" @click="tableOperate('download')">ダウンロード</button>
-          <button type="button" class="btn btn-sm btn-outline-warning" @click="tableOperate('reset')">リセット</button>
-          <button type="button" class="btn btn-sm btn-outline-dark" v-if="debug" @click="_debug">debug</button>
-        </fieldset>
-
-        <div class="container-fluid">
-          <div class="row align-items-center" v-show="mode[0] === 'oc'">
-            <div class="col-7">
-              <p style="margin: 0;">テーブルを直接クリックして変更する選手を選択して下さい。</p>
-            </div>
-            <div class="col">
-              <button type="button" class="btn btn-sm btn-secondary" @click="mode = ['select']">終了</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="table-frame">
-
-        <table id="main_table" class="main-table" v-cloak>
-          <caption>{{ tn }}</caption>
-          <tr>
-            <th v-for="(i, ii) in items.th">{{ items.th[ii] }}</th>
-          </tr>
-          <tr v-for="(r, ri) in pd" :class="tableClass('select', ri)" @click="trClick(0, ri)">
-            <td>{{ (ri < 9) ? ri+1 : '' }}</td>
-            <td>{{ items.piba[ pd[ri][14] ] }}</td>
-            <td :class="tableClass('short', ri)">{{ textDraw('name', ri) }}</td>
-            <td :class="items.posColor[ po[ri] ]">{{ items.po[po[ri]] }}</td>
-            <td v-for="(i, ii) in 14" :class="tableClass('prm', ri, ii)">{{ pd[ri][ii] == 0 ? 10 : pd[ri][ii] }}</td>
-          </tr>
-        </table>
-      </div>
-
-      <div class="player-operate p-1 bg-light border rounded" v-cloak>
-
-        <div class="container-fluid">
-          <div class="row">
-
-            <div class="col-3">
-              <select class="form-select form-select-sm" v-model.number="sp" :disabled="mode[0] === 'oc'" @change="s1Change">
-                <option value="-1" disabled>選手選択</option>
-                <optgroup v-for="(r, ri) in 2" :label="['スタメン','控え選手'][ri]">
-                  <option v-for="(i, ii) in [9, (pd.length-9)][ri]" :value="[ii, ii+9][ri]">{{ [i, i+9][ri] }}: {{ textDraw('name', [ii, ii+9][ri]) }}</option>
-                </optgroup>
-              </select>
-            </div>
-
-            <div class="col">
-              <!---->
-            </div>
-
-          </div>
-        </div>
-
-        <fieldset :disabled="sp === -1" class="container-fluid">
-
-          <hr>
-
-          <div style="margin-bottom: 0.5em;" class="row">
-
-            <div class="col-2">
-              <select class="form-select form-select-sm" v-model="input.s2" @change="playerOperate('prm_piba')">
-                <option :value="-1" disabled>投打</option>
-                <optgroup v-for="(r, ri) in 2" :label="['右投げ','左投げ'][ri]">
-                  <option v-for="(i, ii) in 3" :value="[ii, ii+3][ri]">{{ ['右打','左打','両打'][ii] }}</option>
-                </optgroup>
-              </select>
-            </div>
-
-            <div class="col">
-              <button type="button" class="btn btn-sm btn-outline-dark" @click="playerOperate('name')">名前編集</button>
-              <button type="button" class="btn btn-sm" :class="(sp !== -1 && pd[sp][15] == 1) ? 'role-p' : 'role-fp' " @click="playerOperate('role')">{{ sp !== -1 ? ['野手','投手'][pd[sp][15]] : '野手' }}</button>
-            </div>
-
-          </div>
-
-          <div class="row">
-            <div class="col input-group">
-              <span class="input-group-text">打撃</span>
-              <input type="number" class="form-control" v-model="input.s4" @change="playerOperate('prm_ba')" min="1111" max="9999" step="1111">
-            </div>
-
-            <div class="col input-group">
-              <span class="input-group-text">守備</span>
-              <input type="number" class="form-control" v-model="input.s5" @change="playerOperate('prm_de')" min="1111" max="9999" step="1111">
-            </div>
-
-            <div class="col input-group">
-              <span class="input-group-text">投手</span>
-              <input type="number" class="form-control" v-model="input.s6" @change="playerOperate('prm_pi')" min="1111" max="999999" step="111111">
-            </div>
-          </div>
-          <p style="font-size: 14px;">-野手能力は4桁、投手能力は6桁で入力して下さい。10は0で入力できます。</p>
-
-          <fieldset class="row align-items-center justify-content-start" :disabled="sp > 8">
-            <div class="col-2 text-center">守備位置</div>
-            <div class="col-2">
-              <ul class="list-group list-group-horizontal text-center">
-                <li class="list-group-item list-group-item-action m-cursor-pointer" v-for="(i, ii) in 9" :class="po[sp] == ii+1 ? 'active' : ''" @click="playerOperate('pos', ii)">{{ items.po[ii+1] }}</li>
-              </ul>
-            </div>
-          </fieldset>
-
-        </fieldset>
-      </div>
-
+      <p style="text-align: center">now maintenance</p>
     </main>
 
     <footer class="bg-dark text-white text-center">&copy 2021 @miike_7</footer>
-
-    <script type="text/javascript" src="js/html2canvas.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
