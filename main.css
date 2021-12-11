@@ -7,13 +7,8 @@
   margin: 0;
 }
 
-.btn:focus {
-  box-shadow: none;
-}
-
-.table-active {
-  background: #f0908d;
-}
+.btn:focus{box-shadow: none;}
+.table-active{background: #f0908d;}
 
 .hover-skyblue:hover {
   background: skyblue;
@@ -26,13 +21,8 @@
   margin: auto;
 }
 
-header a {
-  color: yellow;
-}
-
-header a:hover {
-  color: orange;
-}
+header a{color: yellow;}
+header a:hover {color: orange;}
 
 main {
   max-width: 720px;
@@ -51,4 +41,105 @@ footer {
   right: 0;
   bottom: 0;
   border-top-left-radius: 3px;
+  text-align: center;
+  color: #fff;
 }
+
+.table-frame{
+  max-width: 720px;
+  width: 100%;
+  margin: 0.25em auto;
+  overflow: auto;
+  background: #eeeeee;
+}
+
+.main-table{
+  width: 720px;
+  margin: auto;
+  border-collapse: collapse;
+  background: #888888;
+  color: #ffffff;
+  text-align: center;
+  user-select: none;
+  font-size: 15px;
+  font-family: 'Arial','ヒラギノ角ゴシック','Hiragino Sans','メイリオ', Meiryo,sans-serif;
+}
+
+.main-table caption{
+  caption-side: top;
+  padding: 0.1em 0;
+  background: #a4a4a4;
+  text-align: center;
+  color: #ffffff;
+}
+
+.main-table tr:nth-child(n+2){
+  border-top: 1px solid #d4d4d4;
+  height: 24px;
+  line-height: 24px;
+}
+
+.main-table th:nth-child(8),
+.main-table th:nth-child(12),
+.main-table td:nth-child(n+2):nth-child(-n+4),
+.main-table td:nth-child(8),
+.main-table td:nth-child(12){
+  border-right: 1px solid #aaaaaa;
+}
+
+.main-table td:nth-child(1){font-family: Verdana;}
+
+.main-table tr:nth-child(n+2) td:nth-child(n+5) {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 17px;
+}
+
+.main-table tr:nth-child(1){background: #444444;}
+.main-table tr:nth-child(n+2):nth-child(-n+10) td:nth-child(1){background: #b67729;}
+.main-table tr:nth-child(n+11):nth-child(-n+21) td:nth-child(1){background: #5eb629;}
+.main-table th:nth-child(n+5):nth-child(-n+8){background: #009fe2;}
+.main-table th:nth-child(n+9):nth-child(-n+12){background: #66c52c;}
+.main-table th:nth-child(n+13):nth-child(-n+19){background: #009b9c;}
+.main-table th{font-size: 14px;}
+
+.main-table th:nth-child(1){width: 19px;}
+
+.main-table th:nth-child(2){
+  width: 55px;
+  font-size: 14px;
+}
+
+.main-table th:nth-child(3){width: 121px;}
+
+.main-table tr:nth-child(n+2) td:nth-child(2){font-size: 14px;}
+
+.main-table tr:nth-child(n+2) td:nth-child(3){
+  padding-left: 0.25em;
+  text-align: left;
+  font-family: 'ＭＳ Ｐゴシック', 'ヒラギノ角ゴシック', sans-serif;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.main-table th:nth-child(n+4) {width: 35px;}
+
+.short {letter-spacing: -2px;}
+.prm-ten, .prm-nine, .prm-eight, .prm-seven, .prm-six, .prm-five, .prm-other {
+  color: #333;
+  font-size: 18px;
+}
+
+.prm-ten {background: #fd2323;}
+.prm-nine {background: #fe5959;}
+.prm-eight {background: #ffa500;}
+.prm-seven {background: #ffff00;}
+.prm-six {background: #90ee90;}
+.prm-five {background: #add8e6;}
+.prm-other {background: #808080;}
+.d-app {font-weight: bold;}
+
+.pos-dh {background: #00cc00;}
+.pos-p {background: #df5454;}
+.pos-c {background: #fa9140;}
+.pos-in {background: #f8d200;}
+.pos-out {background: #6acec4;}
