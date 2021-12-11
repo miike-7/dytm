@@ -116,7 +116,6 @@ footer {
 .main-table tr:nth-child(n+2) td:nth-child(3){
   padding-left: 0.25em;
   text-align: left;
-  font-family: 'ＭＳ Ｐゴシック', 'ヒラギノ角ゴシック', sans-serif;
   font-weight: bold;
   white-space: nowrap;
 }
