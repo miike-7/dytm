@@ -2,175 +2,140 @@
 
 [v-cloak] {display: none;}
 
-* {
-  padding: 0;
-  margin: 0;
+/* anti bs style */
+.btn:focus, .form-select:focus, .form-control:focus {box-shadow: none;}
+
+caption {
+  padding: 0.25rem!important;
+  text-align: center;
+  font-weight: bold;
+  caption-side: top;
+  background: #f3f3ee!important; color: #000000!important;
 }
 
-.btn:focus{box-shadow: none;}
-.form-control:disabled, .form-control[readonly], fieldset:disabled .input-group-text {opacity: 0.5;}
+.table-active {
+  --bs-table-accent-bg: rgba(0, 0, 0, 0.09);
+  font-weight: bold;
+}
+.table-active:hover {
+  --bs-table-accent-bg: rgba(0, 0, 0, 0.2)!important;
+}
+/* anti bs style end */
 
-footer {
-  padding: 0.1em;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  border-top-left-radius: 3px;
-  background-color: #212529!important;
-  color: #fff;
+:root {
+  --main-bg-color: #f1eca1;
 }
 
-.w-720 {
-  max-width: 720px;
+.bg-main {
+  background: var(--main-bg-color);
+  color: #333;
+}
+
+.w-900 {
+  max-width: 900px;
+  width: 95%;
+  margin: auto;
+}
+
+.w-600 {
+  max-width: 600px;
+  width: auto;
+}
+
+.btn-dropdown {
   width: 100%;
-  margin: auto;
+   padding: 0;
+  background: #ffffff;
+  border: 1px solid #ced4da;
+  text-align: left;
+  display: flex;
+  align-items: baseline;
 }
 
-.main {
-  width: 99%;
-  padding: 0.5em 0;
+.btn-dropdown:hover {
+  background: var(--main-bg-color);
 }
 
-.table-container {
-  margin: 0.25em auto 1em;
-  overflow: auto;
+.dropdown-toggle::after {display: none;}
+
+.selected-label-title {
+  padding: .375rem .75rem;
+  background: #e9ecef;
+  border-right: 1px solid #ced4da;
 }
 
+.selected-label {
+  padding: .375rem .75rem;
+  position: relative;
+  width: 100%;
+}
+
+.selected-label::after {
+  position: absolute;
+  font-family: bootstrap-icons;
+  content: "\F27E";
+  right: 5%;
+}
+
+[data-modal='1'] .modal-auto-input-player {
+  display: none;
+}
+
+[data-modal='0'] .modal-team-color {
+  display: none;
+}
+/* table style */
 .main-table {
-  width: 720px;
+  width: 850px;
   margin: auto;
-  border-collapse: collapse;
-  background: #d9d9d9;
-  color: #000;
   text-align: center;
   user-select: none;
-  font-size: 15px;
-  font-family: 'Arial', sans-serif;
-  caption-side: top;
+  table-layout: fixed;
+  counter-reset: num 0;
 }
 
-.main-table caption {
-  padding: 0.1em 0;
-  background: #a4a4a4;
-  text-align: center;
-  color: #ffffff;
-}
-
-.main-table tr:nth-child(n+3) {
-  border-top: 1px solid #b4b4b4;
-  cursor: pointer;
-}
-
-.main-table .passive:hover td {
-  box-shadow: 0px -50px 0px 0px rgba(0, 128, 0, 0.4) inset;
-}
-
-.main-table .active td {
-  box-shadow: 0px -50px 0px 0px rgba(255, 0, 0, 0.4) inset;
-}
-
-.main-table .p-passive:hover {
-  background: green;
-}
-
-.main-table .p-active {
-  background: red;
-}
+.main-table tbody tr {cursor: pointer;}
 
 .main-table th:nth-child(4), .main-table th:nth-child(8), .main-table th:nth-child(12),
-.main-table td:nth-child(4), .main-table td:nth-child(8), .main-table td:nth-child(12)
-{border-right: 1px solid #595959;}
-
-.main-table th {
-  background: #444444;
-  color: #fff;
-  font-size: 14px;
+.main-table td:nth-child(4), .main-table td:nth-child(8), .main-table td:nth-child(12) {
+  border-right: 1px solid #000;
 }
 
-.main-table th:nth-child(n+5):nth-child(-n+8){background: #009fe2;}
-.main-table th:nth-child(n+9):nth-child(-n+12){background: #66c52c;}
-.main-table th:nth-child(n+13):nth-child(-n+19){background: #009b9c;}
+.main-table th, .main-table td {border-right: 1px solid #dee2e6;}
 
-.main-table th:nth-child(1){width: 20px;}
-.main-table th:nth-child(2){width: 55px;}
-.main-table th:nth-child(3){width: 120px;}
-.main-table th:nth-child(n+4){width: 35px;}
-
-.main-table td:nth-child(3){
-  text-align: left;
-  white-space: nowrap;
-  vertical-align: bottom;
+.main-table th:nth-last-child(1), .main-table td:nth-last-child(1) {
+  border-right: none!important;
 }
 
-.bo-background-main, .bo-background-sub {
-  color: #fff;
-  font-family: Verdana;
+.main-table td:nth-child(3) {text-align: left;}
+
+.main-table th:nth-child(2) {width: 60px!important;}
+.main-table th:nth-child(3) {width: 125px!important;}
+
+.main-table td:nth-child(1) {
+  background: #4988D6!important;
+  color: #ffffff!important;
+  cursor: move;
 }
 
-.bo-background-main {background: #b67729;}
-.bo-background-sub {background: #5eb629;}
-
-.short {letter-spacing: -2px;}
-.badge-piba, .badge-pos, .badge-role {
-  display: inline-block;
-  padding: 0.3em;
-  border-radius: 0.25rem;
-  border: 1px solid;
-  font-size: .80em;
-  font-weight: 700;
-  line-height: 1;
-  vertical-align: middle;
-  color: #fff;
+.main-table td:nth-child(1)::after {
+  counter-increment: num 1;
+  content: counter(num);
 }
 
-.badge-piba {
-  width: 40px;
-  border-color: #850090;
-  background: #9363a0;
-}
+[data-table='0'] tr:nth-child(n+10) td:nth-child(1) {background: #5eb629!important;}
+[data-table='0'] tr:nth-child(n+10) td:nth-child(1)::after {content: '控';}
+[data-table='0'] tr:nth-child(9) {border-color: #212529!important;}
 
-.prm-ten, .prm-nine, .prm-eight, .prm-seven, .prm-six, .prm-five, .prm-other {
-  color: #333;
-  font-size: 17px;
-  font-family: 'Roboto', sans-serif !important;
-}
+[data-table='1'] tr:nth-child(n+11) td:nth-child(1) {background: #5eb629!important;}
+[data-table='1'] tr:nth-child(10) td:nth-child(1)::after {content: 'P';}
+[data-table='1'] tr:nth-child(n+11) td:nth-child(1)::after {content: '控';}
+[data-table='1'] tr:nth-child(10) {border-color: #212529!important;}
 
-.prm-ten {background: #fd2323;}
-.prm-nine {background: #fe5959;}
-.prm-eight {background: #ffa500;}
-.prm-seven {background: #ffff00;}
-.prm-six {background: #90ee90;}
-.prm-five {background: #8ad0f9;}
-.prm-other {background: #d0becc;}
-.d-app {font-weight: bold;}
-
-.pos-dh {
-  background: #00cc00;
-  border-color: #22b14c;
-}
-.pos-p {
-  background: #df5454;
-  border-color: #ba0000;
-}
-.pos-c {
-  background: #fa9140;
-  border-color: #bc7d00;
-}
-.pos-in {
-  background: #f8d200;
-  border-color: #a29300;
-}
-.pos-out {
-  background: #6acec4;
-  border-color: #008c8c;
-}
-
-.role-pi {
-  background: #aa0000;
-  border-color: #9b9b9b;
-}
-
-.role-fp {
-  background: #277e00;
-  border-color: #9b9b9b;
-}
+.bg-handed-r::after {content: '右';}
+.bg-handed-rl::after {content: '右.左';}
+.bg-handed-rs::after {content: '右.両';}
+.bg-handed-lr::after {content: '左.右';}
+.bg-handed-l::after {content: '左';}
+.bg-handed-ls::after {content: '左.両';}
+/* table style end */
