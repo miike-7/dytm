@@ -8,17 +8,15 @@
     <meta property="og:url" content="https://miike-7.github.io/dytm/">
     <meta property="og:title" content="ダイナマイト野球チームメーカー">
     <meta property="og:description" content="ダイナマイト野球のオリジナルチームをウェブサイト上で簡単に作成できます。">
-    <meta property="og:image" content="https://miike-7.github.io/dytm/img/img_374.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta property="og:image" content="https://miike-7.github.io/dytm/img/img_340.png">
+    <meta name="viewport" content="width=810">
     <meta name="google-site-verification" content="1CD99Nlj9uDsqqUgYS_-kanjZV8IPRfrbfLDizfrJrM" />
-    <title>ダイナマイト野球チームメーカー</title>
+    <title>ダイナマイト野球 チームメーカー</title>
     <link rel="shortcut icon" href="img/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="items.css?332">
     <link rel="stylesheet" href="main.css?332">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <style>
     noscript {
       position: fixed;
@@ -29,37 +27,33 @@
       text-align: center;
     }
     </style>
-    <script type="text/javascript">
-    const u = window.navigator.userAgent.toLowerCase();
-    if(u.indexOf('msie') != -1 || u.indexOf('trident') != -1 || u.indexOf('iPhone') != -1 || u.indexOf('iPod') != -1 || u.indexOf('iPad') != -1 || u.indexOf('Android') != -1){
-      window.location.href = "https://miike7.hateblo.jp/entry/2021/07/31/220915";
-    }
-    </script>
   </head>
-  <body>
+  <body class="bg-light">
 
     <noscript>
       <p>javascriptが無効です。<br>各ブラウザの設定より有効にして下さい。</p>
     </noscript>
     
     <header>
-      <div class="container-fluid mb-4 bg-dark text-white text-center">
-        <div class="w-720 row">
-          <div class="col">
-            <h1 class="fs-5 m-0">チームメーカー</h1>
-          </div>
-          <div class="col">
-            <a href="https://miike7.hateblo.jp/entry/2021/07/31/220915" target="_blank" class="link-info">使い方</a>
-          </div>
+      <nav class="navbar p-1 bg-main">
+        <div class="container justify-content-around">
+          <h1 class="fs-5 m-0">ダイナマイト野球 チームメーカー</h1>
+          <a class="link-dark" href="https://miike7.hateblo.jp/entry/2021/07/31/220915" target="_blank">使い方</a>
         </div>
-      </div>
+      </nav>
     </header>
     
     <main>
-      <div id="main_app" style="text-align: center;"><p>メンテナンス中</p></div>
+      <div id="app">
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border m-5" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </div>
     </main>
     
-    <footer><p class="m-0"><small>&copy; 2022 @miike_7</small></p></footer>
+    <footer><p class="text-center"><small>&copy 2023 @miike_7</small></p></footer>
     
     <script type="text/javascript" src="js/html2canvas.min.js"></script>
     <script type="text/javascript" src="js/data.js?332"></script>
